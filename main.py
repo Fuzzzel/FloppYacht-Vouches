@@ -92,7 +92,7 @@ def run_flask():
     app.run(debug=True, use_reloader=False)
 
 def run_bot():
-    bot.run("MTI0NjU4NjEyNTMzNDg3NjIyMQ.GUImIu.Uig0Co8s4Jm4Csj0cJ-Y6qaOyI_TiMjxQSW4pU")
+    bot.run("MTI5MTM4ODE2MDg2OTQwMDU3Ng.GriHel.h49_lB0ZlGZyibtkVQGBH1kb3rWi1PbI3YQvro")
 
 if __name__ == "__main__":
     flask_thread = threading.Thread(target=run_flask)
