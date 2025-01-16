@@ -7,9 +7,12 @@ from datetime import datetime
 import logging
 from flask import Flask, jsonify, render_template
 import threading
+from dotenv import load_dotenv
 
 # Nastavení logování pro výpis informací do konzole
 logging.basicConfig(level=logging.INFO)
+
+load_dotenv()
 
 # Flask aplikace
 app = Flask(__name__)
@@ -91,8 +94,10 @@ async def vouch(ctx, mention, *, message: str):
 def run_flask():
     app.run(debug=True, use_reloader=False)
 
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+
 def run_bot():
-    bot.run("MTI5MTM4ODE2MDg2OTQwMDU3Ng.GriHel.h49_lB0ZlGZyibtkVQGBH1kb3rWi1PbI3YQvro")
+    bot.run(DISCORD_TOKEN)
 
 if __name__ == "__main__":
     flask_thread = threading.Thread(target=run_flask)
