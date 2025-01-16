@@ -50,10 +50,6 @@ async def on_ready():
     print(f"Bot připojen k Discordu jako {bot.user}")
 
 @bot.event
-async def on_error(event, *args, **kwargs):
-    logging.error(f"Nastala chyba v eventu {event}: {args}, {kwargs}")
-
-@bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         message = await ctx.send(f"*Wrong use of command, this is correct -->* `+rep @user message`")
