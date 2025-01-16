@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flopp Yacht 🛥</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Flopp Yacht 🛥" property="og:title" />
+    <meta content="A service selling services such as Netflix, Spotify and more, we have over years of experience, visit our site and discover shopping on the cheap." property="og:description" />
+    <meta content="https://floppyacht.fun/" property="og:url" />
+    <meta content="https://floppyacht.fun/kocicka.png" property="og:image" />
+    <meta content="#6b61ff" data-react-helmet="true" name="theme-color" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Reem+Kufi+Fun&display=swap');
+
+        * {
+            font-family: 'Reem Kufi Fun', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #131313;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 100%;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .navbar{
+            background-color: #0e0e0e;
+            display: flex;
+            width: 1100px;
+            height: 80px;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 0 20px rgba(15, 15, 15, 0.8);
+        }
+  
+        .navbar ul{
+            display: flex;
+            gap: 50px;
+        }
+
+        .navbar ul li {
+            color: #ffffff;
+            text-decoration: none;
+            list-style: none;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 14px;
+        }
+
+        .lol {
+            background-color: #6b61ff;
+            width: 150px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .ctyri {
+            color: white;
+            text-decoration: none;
+        }
+
+        a {
+            color: transparent;
+        }
+
+        .vouches-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 sloupce */
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+            justify-content: center;
+        }
+
+        .vouch-card {
+            width: 400px;
+            height: 150px;
+            background-color: #0e0e0e;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .vouch-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vouch-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vouch-header-left img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .username {
+            font-size: 16px;
+            color: #6b61ff;
+        }
+
+        .userid {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .vouch-content {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #ccc;
+        }
+
+        .vouch-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+        .navbar {
+            flex-direction: column;
+            height: 125px;
+            width: 100%;
+        }
+  
+        .navbar ul {
+            display: block;
+            margin-top: 10px;
+            flex-direction: row;
+            gap: 7px;
+            font-size: 5px;
+            text-align: center;
+        }
+
+        .vouches-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .vouch-card {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+        @media (max-width: 900px) {
+        .navbar {
+            width: 95%;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .vouches-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .vouch-card {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+        body::-webkit-scrollbar {
+            width: 5px;
+        }
+ 
+        body::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+ 
+        body::-webkit-scrollbar-thumb {
+            background-color: #6b61ff;
+            outline: 1px solid #6b61ff;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="navbar">
+            <a href="index.html"><h1 class="ctyri">Flopp Yacht</h1></a>
+            <ul>
+                <a href="questions.html"><li>F&Q</li></a>
+                <a href="obchod.html"><li>STORE</li></a>
+                <a href="https://vouches.floppyacht.eu"><li>VOUCHES</li></a>
+                <a class="lol" target="_blank" href="https://discord.gg/floppyacht"><li>Discord</li></a>
+            </ul>
+        </div>
+
+    <div style="margin-top: 125px;"></div>
+    
+    <div class="vouches-container">
+        {% for vouch in vouches %}
+        <div class="vouch-card">
+            <div class="vouch-header">
+                <div class="vouch-header-left">
+                    <img src="{{ vouch.avatar_url }}" alt="Avatar">
+                    <div class="username">@{{ vouch.user }}</div>
+                </div>
+                <div class="userid">ID: {{ vouch.user_id }}</div>
+            </div>
+            <div class="vouch-content">
+                {{ vouch.message }}
+            </div>
+            <div class="vouch-footer">
+                <span>Vouch N°{{ vouch.id }}</span>
+                <span>{{ vouch.date }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+discord.py==2.0.0
+Flask==2.0.3
+Werkzeug==2.0.3
+asyncio
+datetime
+logging
+threading
+json
+os
